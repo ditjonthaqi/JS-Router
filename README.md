@@ -5,13 +5,13 @@
 
 Creating Router
 
-```
+```ts
 import Router from "./src/index.ts";
 
 const router = new Router;
 ```
 Creating a Route
-```
+```ts
 const users = [
     { name: "Filan Fisteku", id: "2", },
     { name: "Thash Mthe", id: "3", }
@@ -33,7 +33,7 @@ class User {
 router.add("/users", User);
 ```
 Resolve Request
-```
+```ts
 const request = new Request('https://www.example.com/users/all');
 
 router.resolve(request).then(response => {
@@ -43,7 +43,7 @@ router.resolve(request).then(response => {
 ```
 
 Combine Multiple Routers
-```
+```ts
 const otherRouter = new Router;
 
 class Product {
@@ -57,7 +57,7 @@ class Product {
     }
 }
 
-otherRouter.add("/product/:id", Product);
+otherRouter.add("/product", Product);
 
 const combinedRouter = Router.combine(router, otherRouter); 
 
